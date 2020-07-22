@@ -1,0 +1,71 @@
+{
+  "runConfigurations": [
+    {
+      "id": "Hospital_PR2_Cfg03",
+      "name": "Hospital_PR2 Simulation",
+      "type": "colcon build",
+      "cfg": {
+        "workingDir": "/aws-robomaker-hospital-PR2/simulation_ws",
+        "cmdArgs": ""
+      }
+    },
+    {
+      "id": "Hospital_PR2_Cfg04",
+      "name": "Hospital_PR2 Simulation",
+      "type": "colcon bundle",
+      "cfg": {
+        "workingDir": "/aws-robomaker-hospital-PR2/simulation_ws",
+        "cmdArgs": ""
+      }
+    },
+    {
+      "id": "Hospital_PR2_SimulationJob1",
+      "name": "Hospital_PR2",
+      "type": "simulation",
+      "cfg": {
+        "simulationApp": {
+          "name": "RoboMakerHospital_PR2Simulation",
+          "sourceBundleFile": "/aws-robomaker-hospital-PR2/simulation_ws/bundle/output.tar",
+          "architecture": "X86_64",
+          "s3Bucket": "<bucket name for your simulation bundle>",
+          "launchConfig": {
+            "packageName": "pr2_hospital_simulation",
+            "launchFile": "hospital.launch",
+            "environmentVariables": {
+              "ROBOT_INITIAL_POSE": "-x 0.0 -y 10.0",
+              "ROBOT": "sim"
+            }
+          },
+          "simulationSoftwareSuite": {
+            "name": "Gazebo",
+            "version": "9"
+          },
+          "renderingEngine": {
+            "name": "OGRE",
+            "version": "1.x"
+          },
+          "robotSoftwareSuite": {
+            "name": "ROS",
+            "version": "Melodic"
+          }
+        },
+        "simulation": {
+          "maxJobDurationInSeconds": 28800,
+          "failureBehavior": "Fail",
+          "iamRole": "<your RoboMaker simulation job role ARN>",
+          "outputLocation": "",
+          "tags": {}
+        }
+      }
+    },
+    {
+      "id": "Hospital_PR2_wf1",
+      "type": "workflow",
+      "name": "Hospital_PR2 - Build and Bundle All",
+      "runCfgIds": [
+        "Hospital_PR2_Cfg03",
+        "Hospital_PR2_Cfg04"
+      ]
+    }
+  ]
+}

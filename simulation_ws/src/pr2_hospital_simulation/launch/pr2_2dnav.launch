@@ -1,0 +1,14 @@
+<launch>
+  <param name="use_sim_time" value="true"/>
+  <include file="$(find pr2_machine)/$(env ROBOT).machine" />
+  <include file="$(find pr2_navigation_slam)/slam_gmapping.xml" />
+  <include file="$(find pr2_navigation_teleop)/teleop.xml" />
+  <include file="$(find pr2_navigation_perception)/lasers_and_filters.xml" />
+  <include file="$(find pr2_navigation_perception)/ground_plane.xml" />
+  
+  <include file="$(find pr2_hospital_simulation)/launch/move_base.launch" />
+  
+  <param name="slam_gmapping/map_update_interval" value="1.0" />
+
+
+</launch>
