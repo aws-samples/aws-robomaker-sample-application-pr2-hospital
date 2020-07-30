@@ -1,11 +1,29 @@
 {
   "runConfigurations": [
     {
+      "id": "Hospital_PR2_Cfg01",
+      "name": "Hospital_PR2 Robot",
+      "type": "colcon build",
+      "cfg": {
+        "workingDir": "/aws-robomaker-sample-application-pr2-hospital/robot_ws",
+        "cmdArgs": ""
+      }
+    },
+    {
+      "id": "Hospital_PR2_Cfg02",
+      "name": "Hospital_PR2 Robot",
+      "type": "colcon bundle",
+      "cfg": {
+        "workingDir": "/aws-robomaker-sample-application-pr2-hospital/robot_ws",
+        "cmdArgs": ""
+      }
+    },
+    {
       "id": "Hospital_PR2_Cfg03",
       "name": "Hospital_PR2 Simulation",
       "type": "colcon build",
       "cfg": {
-        "workingDir": "/aws-robomaker-hospital-PR2/simulation_ws",
+        "workingDir": "/aws-robomaker-sample-application-pr2-hospital/simulation_ws",
         "cmdArgs": ""
       }
     },
@@ -14,7 +32,7 @@
       "name": "Hospital_PR2 Simulation",
       "type": "colcon bundle",
       "cfg": {
-        "workingDir": "/aws-robomaker-hospital-PR2/simulation_ws",
+        "workingDir": "/aws-robomaker-sample-application-pr2-hospital/simulation_ws",
         "cmdArgs": ""
       }
     },
@@ -25,7 +43,7 @@
       "cfg": {
         "simulationApp": {
           "name": "RoboMakerHospital_PR2Simulation",
-          "sourceBundleFile": "/aws-robomaker-hospital-PR2/simulation_ws/bundle/output.tar",
+          "sourceBundleFile": "/aws-robomaker-sample-application-pr2-hospital/simulation_ws/bundle/output.tar",
           "architecture": "X86_64",
           "s3Bucket": "<bucket name for your simulation bundle>",
           "launchConfig": {
@@ -49,6 +67,23 @@
             "version": "Melodic"
           }
         },
+        "robotApp": {
+          "name": "RoboMakerHospital_PR2Robot",
+          "sourceBundleFile": "/aws-robomaker-sample-application-pr2-hospital/robot_ws/bundle/output.tar",
+          "architecture": "X86_64",
+          "s3Bucket": "<bucket name for your robot bundle>",
+          "launchConfig": {
+            "packageName": "pr2_hospital_robot",
+            "launchFile": "pr2_2dnav.launch",
+            "environmentVariables": {
+              "ROBOT": "sim"
+            }
+          },
+          "robotSoftwareSuite": {
+            "name": "ROS",
+            "version": "Melodic"
+          }
+        },
         "simulation": {
           "maxJobDurationInSeconds": 28800,
           "failureBehavior": "Fail",
@@ -63,6 +98,8 @@
       "type": "workflow",
       "name": "Hospital_PR2 - Build and Bundle All",
       "runCfgIds": [
+        "Hospital_PR2_Cfg01",
+        "Hospital_PR2_Cfg02",
         "Hospital_PR2_Cfg03",
         "Hospital_PR2_Cfg04"
       ]

@@ -2,6 +2,8 @@
 
 This demonstrates tests you would run in a hospital Gazebo world with PR2. 
 
+![PR2_In_Hospital](images/pr2_in_hospital.png)
+
 _RoboMaker sample applications include third-party software licensed under open-source licenses and is provided for demonstration purposes only. Incorporation or use of RoboMaker sample applications in connection with your production workloads or a commercial products or devices may affect your legal rights or obligations under the applicable open-source licenses. Source code information can be found [here](https://s3.console.aws.amazon.com/s3/buckets/robomaker-applications-us-east-1-72fc243f9355/hello-world/?region=us-east-1)._
 
 ## Requirements
@@ -20,7 +22,15 @@ sudo apt-get update
 rosdep update
 ```
 
-### Simulation
+### Robot Application
+
+```bash
+cd robot_ws
+rosdep install --from-paths src --ignore-src -r -y
+colcon build
+```
+
+### Simulation Application
 
 ```bash
 cd simulation_ws

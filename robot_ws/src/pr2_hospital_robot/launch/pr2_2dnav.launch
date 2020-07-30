@@ -6,7 +6,7 @@
   <include file="$(find pr2_navigation_perception)/lasers_and_filters.xml" />
   <include file="$(find pr2_navigation_perception)/ground_plane.xml" />
   
-  <include file="$(find pr2_hospital_simulation)/launch/move_base.launch" />
+  <include file="$(find pr2_hospital_robot)/launch/move_base.launch" />
   
   <param name="slam_gmapping/map_update_interval" value="1.0" />
 
