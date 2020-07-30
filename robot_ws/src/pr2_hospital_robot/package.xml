@@ -3,7 +3,7 @@
   <name>pr2_hospital_robot</name>
   <version>1.2.0</version>
   <description>
-    AWS RoboMaker simulation package of a PR2 in an Gazebo Hospital world.
+    AWS RoboMaker robot package of a PR2 in an Gazebo Hospital world.
   </description>
   <license>MIT</license>
   <author email="ros-contributions@amazon.com">AWS RoboMaker</author>
