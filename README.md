@@ -86,7 +86,7 @@ You'll need to upload these two bundles to an s3 bucket, then you can use these 
 [create a robot application](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application.html), [create a simulation application](https://docs.aws.amazon.com/robomaker/latest/dg/create-simulation-application.html),
 and [create a simulation job](https://docs.aws.amazon.com/robomaker/latest/dg/create-simulation-job.html) in RoboMaker. This is a simulation application only, so you can skip the steps (13-19) that are for creating or using a robot application. 
 
-You can also use the **RoboMaker Developement Environment** (IDE). Once a development environment is open, simply clone this repository, then click **Add or Edit Configurations** in the top drop down menu. On the bottom of the pop-up window, click **Switch Config** and select the roboMakerSettings.json file provided in this repository. Then, open the simulation and select your IAM role and S3 buckets you want to use.
+You can also use the **RoboMaker Development Environment** (IDE). Once a development environment is open, simply clone this repository, then click **Add or Edit Configurations** in the top drop down menu. On the bottom of the pop-up window, click **Switch Config** and select the roboMakerSettings.json file provided in this repository. Then, open the simulation settings in the configuration settings window and select your IAM role and S3 buckets you want to use.
 
 ## License
 
