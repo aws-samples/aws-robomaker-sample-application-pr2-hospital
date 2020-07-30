@@ -15,6 +15,5 @@
   </include>
 
   <include file="$(find pr2_gazebo)/launch/pr2_no_arms.launch" pass_all_args="true"/>
-  <include file="$(find pr2_hospital_simulation)/launch/pr2_2dnav.launch" pass_all_args="true"/>
   
 </launch>
