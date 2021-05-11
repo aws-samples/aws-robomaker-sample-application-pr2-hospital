@@ -11,4 +11,5 @@
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>pr2_teleop</exec_depend>
   <exec_depend>pr2_navigation</exec_depend>
+  <exec_depend>pr2_description</exec_depend>
 </package>
